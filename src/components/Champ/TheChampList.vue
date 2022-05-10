@@ -37,7 +37,7 @@ const paginator = (totalItem: any, currenPage: any) => {
     currenPage: currenPage,
     startIndex: startIndex,
     endIndex: endIndex,
-    pages: _.range(1, Math.ceil(totalItem/perPage.value) + 1)
+    pages: _.range(1, Math.ceil(totalItem/perPage.value))
   };
 }
 
@@ -46,11 +46,15 @@ const setPage = (p: any) => {
 }
 
 const collection = computed(() => {
-  return paginate([champs.value])
+  let data = []
+  for (let item in champs.value) {
+    data.push(champs.value[item])
+  }
+  return paginate([...data])
 })
 
 const paginate = (data: {}) => {
-  return _.slice(data, pagination.value.startIndex, pagination.value.endIndex+1)
+  return _.slice(data, pagination.value.startIndex, pagination.value.endIndex + 1)
 }
 
 onBeforeMount(() => {
