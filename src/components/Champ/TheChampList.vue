@@ -9,13 +9,20 @@
         </svg>
       </div>
     </div>
-    <TheChampItem v-for="item in champs" :item="item" />
+<!--    <TheChampItem v-for="item in champs" :item="item" />-->
+    <ul class="list-qroup">
+      <li v-for="item in collection">
+        {{item}}
+      </li>
+    </ul>
+    <button v-for="p in pagination.pages" @click="setPage(p)">{{ p }}</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import TheChampItem from "@/components/Champ/TheChampItem.vue";
-import {computed, ref} from "vue";
+import {computed, createApp, onMounted, ref} from "vue";
+import _ from "lodash";
 
 interface ChampsProps {
   champs: []
@@ -23,12 +30,36 @@ interface ChampsProps {
 
 const props = defineProps<ChampsProps>()
 
-const page = ref(14)
-
 const champs = ref(props.champs)
+const perPage = ref(3)
+const pagination = ref({})
 
-const last = computed(() => {
-  return Math.ceil(props.champs.length / page.value)
+const paginator = (totalItem: any, currenPage: any) => {
+  const startIndex = (currenPage - 1) * perPage.value,
+      endIndex = Math.min(startIndex + perPage.value-1, totalItem - 1)
+
+  return {
+    currenPage: currenPage,
+    startIndex: startIndex,
+    endIndex: endIndex,
+    pages: _.range(1, Math.ceil(totalItem/perPage.value) + 1)
+  };
+}
+
+const setPage = (p: any) => {
+  pagination.value = paginator(champs.value, p)
+}
+
+const paginate = (data: any) => {
+  return _.slice(data, pagination.value.startIndex, pagination.value.endIndex+1)
+}
+
+const collection = computed(() => {
+  return paginate(champs.value)
+})
+
+onMounted(() => {
+  setPage(1)
 })
 
 </script>
