@@ -8,6 +8,13 @@
         <div class="champ__history">
           {{props.item.blurb}}
         </div>
+        <div class="champ__tag">
+          <div class="champ__tag-title"> Роль: </div>
+          <div class="champ__tag-container" >
+            <div></div>
+            <div class="champ__tag-item" v-for="item in props.item.tags">{{ item }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -81,5 +88,19 @@ const props = defineProps<ChampProps>()
 
     &__history
         padding: 15px
+
+    &__tag
+        padding: 15px
+
+        &-title
+            font-size: calc(0.25 * 5.5rem)
+            font-weight: 600
+
+        &-container
+            display: flex
+            padding: 5px 0
+
+        &-item
+            padding: 0 10px 0 0
 
 </style>
