@@ -1,16 +1,16 @@
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore({
-  id: 'counter',
+export const useChampsStore = defineStore({
+  id: 'champs',
   state: () => ({
-    counter: 0
+    onPage: 1
   }),
   getters: {
-    doubleCount: (state) => state.counter * 2
+    /*doubleCount: (state) => state.counter * 2*/
   },
   actions: {
     increment() {
-      this.counter++
+      /*this.counter++*/
     }
   }
 })

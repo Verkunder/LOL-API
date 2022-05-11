@@ -28,6 +28,7 @@
 import TheChampItem from "@/components/Champ/TheChampItem.vue";
 import { computed, createApp, onBeforeMount, ref } from "vue";
 import _ from "lodash";
+import {useChampsStore} from "@/stores/champs";
 
 interface ChampsProps {
   champs: [];
@@ -38,7 +39,8 @@ const props = defineProps<ChampsProps>();
 const champs = ref(props.champs);
 const perPage = ref(15);
 const pagination = ref({});
-const onPage = ref(0)
+
+const store = useChampsStore()
 
 const paginator = (totalItem: any, currenPage: any) => {
   const startIndex = (currenPage - 1) * perPage.value;
@@ -54,7 +56,7 @@ const paginator = (totalItem: any, currenPage: any) => {
 
 const setPage = (p: any) => {
   pagination.value = paginator(169, p);
-  onPage.value = p
+  store.$state.onPage = p
 };
 
 const collection = computed(() => {
@@ -74,7 +76,7 @@ const paginate = (data: {}) => {
 };
 
 onBeforeMount(() => {
-  setPage(1);
+  setPage(store.$state.onPage);
 });
 </script>
 
