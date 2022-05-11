@@ -12,7 +12,9 @@
           <div class="champ__tag-title"> Роль: </div>
           <div class="champ__tag-container" >
             <div></div>
-            <div class="champ__tag-item" v-for="item in props.item.tags">{{ item }}</div>
+            <div class="champ__tag-item" v-for="item in props.item.tags">
+              <img class="champ__tag-icon" :src="'src/assets/icons/' + item + '.svg'" :alt="item">
+            </div>
           </div>
         </div>
       </div>
@@ -102,5 +104,8 @@ const props = defineProps<ChampProps>()
 
         &-item
             padding: 0 10px 0 0
+
+        &-icon
+            width: 35px
 
 </style>
