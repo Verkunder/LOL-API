@@ -1,5 +1,5 @@
 <template>
-  <div class="champ">
+  <div class="champ" @click="onPush(props.item.id)">
     <div class="champ__liner"></div>
     <div class="champ__main">
       <img class="champ__image" :src="'http://ddragon.leagueoflegends.com/cdn/12.9.1/img/champion/' + props.item.image.full">
@@ -24,11 +24,20 @@
 
 <script setup lang="ts">
 
+import {useRouter} from "vue-router";
+
 interface ChampProps {
   item: []
 }
 
+const router = useRouter()
+
 const props = defineProps<ChampProps>()
+
+const onPush = (idx: string) => {
+  router.push({name: 'champs', params: {id: idx}})
+  console.log(idx)
+}
 
 </script>
 
