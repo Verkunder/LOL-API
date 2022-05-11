@@ -2,7 +2,13 @@
   <div class="champ">
     <div class="champ__liner"></div>
     <div class="champ__main">
-      {{props.item}}
+      <img class="champ__image" :src="'http://ddragon.leagueoflegends.com/cdn/12.9.1/img/champion/' + props.item.image.full">
+      <div class="champ__info">
+        <div class="champ__info-title"> {{props.item.name}} - {{props.item.title}} </div>
+        <div class="champ__history">
+          {{props.item.blurb}}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -49,4 +55,31 @@ const props = defineProps<ChampProps>()
         width: 100%
         align-items: flex-start
         border-radius: 0 5px 5px 0
+
+    &__image
+        background-size: 115%
+        flex-shrink: 0
+        position: relative
+        margin-right: calc(0.25 * 1rem)
+        width: calc(0.25 * 14rem)
+        height: calc(0.25 * 14rem)
+        background-position: center center
+        background-repeat: no-repeat
+        background-color: #07090e
+        border-radius: calc(0.25 * 1.5rem)
+        z-index: 1
+
+    &__info
+        padding: 0 40px
+
+        &-title
+            padding: 0px 5px 0 15px
+            font-weight: 700
+            font-size: calc(0.25 * 6rem)
+            line-height: calc(0.25 * 9rem)
+            letter-spacing: -0.009em
+
+    &__history
+        padding: 15px
+
 </style>
