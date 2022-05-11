@@ -19,7 +19,7 @@
     </div>
     <TheChampItem v-for="item in collection" :item="item" />
     <div class="paginate">
-      <a class="paginate-button" :class="onPage === p ? 'active' : ''" v-for="p in pagination.pages" @click="setPage(p)">{{ p }}</a>
+      <a class="paginate-button" :class="store.$state.onPage === p ? 'active' : ''" v-for="p in pagination.pages" @click="setPage(p)">{{ p }}</a>
     </div>
   </div>
 </template>
