@@ -47,4 +47,7 @@ const modules = ref([Pagination])
     align-items: center
     max-width: 1200px
     width: 100%
+
+.swiper
+    --swiper-theme-color: #dd364d
 </style>
