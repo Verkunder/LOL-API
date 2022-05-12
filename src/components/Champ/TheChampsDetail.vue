@@ -42,6 +42,7 @@
           {{ champ.lore }}
         </div>
         <TheChampInfo v-if="success" :champ="champ" />
+        <TheChampSkills v-if="success" :champ="champ" />
         <div class="champ__skins">
           <TheSkinsSlider
             v-if="success"
@@ -60,11 +61,13 @@ import { onMounted, ref } from "vue";
 import axios from "axios";
 import TheSkinsSlider from "@/components/Champ/TheSkinsSlider.vue";
 import TheChampInfo from "@/components/Champ/TheChampInfo.vue";
+import TheChampSkills from "@/components/Champ/TheChampSkills.vue";
 
 const router = useRouter();
 const champ = ref([]);
 const champId = ref(router.currentRoute._value.params.id);
 const success = ref(false);
+const video = ref([])
 
 onMounted(async () => {
   await axios
