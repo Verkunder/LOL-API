@@ -44,7 +44,6 @@ const router = useRouter()
     user-select: none
 
     &__container
-        background: radial-gradient( circle at 0px 0px,hsla(352deg 71% 54% / 0.15),transparent 115px )
         flex: 1 1 0%
         padding: calc(0.25 * 4rem) calc(0.25 * 3.5rem) 0
         user-select: none

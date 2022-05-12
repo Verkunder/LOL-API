@@ -12,6 +12,7 @@
         <div class="champ__detail-history">
           {{champ.lore}}
         </div>
+        <TheChampInfo v-if="success" :champ="champ" />
         <div class="champ__skins">
           <TheSkinsSlider v-if="success" :champ="champId" :skins="champ.skins" />
         </div>
@@ -26,6 +27,7 @@ import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import axios from "axios";
 import TheSkinsSlider from "@/components/Champ/TheSkinsSlider.vue";
+import TheChampInfo from "@/components/Champ/TheChampInfo.vue";
 
 const router = useRouter()
 const champ = ref([])
@@ -70,6 +72,27 @@ onMounted(async () => {
               justify-content: center
               padding: calc(0.25 * 6rem) 0
               font-weight: 700
+
+    &__info
+          padding: 0 0 50px 0
+
+          &-item
+                display: flex
+                flex-direction: column
+
+                &-span
+                    padding: 5px 0
+          &-skill
+                display: inline-block
+                width: 40px
+                height: 15px
+                padding-right: 5px
+                background-color: #dd364d
+                background-clip: content-box
+                transform: skewX(-40deg)
+                opacity: 1
+
+
 .back
     width: 100px
     height: 50px
