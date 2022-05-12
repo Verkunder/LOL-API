@@ -19,7 +19,7 @@
     </div>
     <TheChampItem v-for="item in collection" :item="item" />
     <div class="paginate">
-      <a class="paginate-button" :class="store.$state.onPage === p ? 'active' : ''" v-for="p in pagination.pages" @click="setPage(p)">{{ p }}</a>
+      <a class="button" :class="store.$state.onPage === p ? 'active' : ''" v-for="p in pagination.pages" @click="setPage(p)">{{ p }}</a>
     </div>
   </div>
 </template>
@@ -114,34 +114,34 @@ onBeforeMount(() => {
     justify-content: center
     align-items: center
 
-    &-button
-        position: relative
-        box-sizing: border-box
-        display: inline-flex
-        -webkit-box-align: center
-        align-items: center
-        -webkit-box-pack: center
-        justify-content: center
-        width: calc(0.25 * 9rem)
-        height: calc(0.25 * 9rem)
-        padding: 0 calc(0.25 * 4rem)
-        border: none
-        color: #ffffff
-        font-family: inherit
-        white-space: nowrap
-        background: #dd364d
-        border-radius: 50%
-        cursor: pointer
-        margin: 15px
-        overflow: hidden
-        user-select: none
-        box-shadow: inset 0 1px hsla(222deg 6% 30% / 0.15)
-        text-shadow: inset 0 2px hsla(222deg 20% 7% / 0.25)
-        transition: 0.3s ease-in-out
-        opacity: 1
+.button
+    position: relative
+    box-sizing: border-box
+    display: inline-flex
+    -webkit-box-align: center
+    align-items: center
+    -webkit-box-pack: center
+    justify-content: center
+    width: calc(0.25 * 9rem)
+    height: calc(0.25 * 9rem)
+    padding: 0 calc(0.25 * 4rem)
+    border: none
+    color: #ffffff
+    font-family: inherit
+    white-space: nowrap
+    background: #dd364d
+    border-radius: 50%
+    cursor: pointer
+    margin: 15px
+    overflow: hidden
+    user-select: none
+    box-shadow: inset 0 1px hsla(222deg 6% 30% / 0.15)
+    text-shadow: inset 0 2px hsla(222deg 20% 7% / 0.25)
+    transition: 0.3s ease-in-out
+    opacity: 1
 
-        &:hover
-            opacity: 0.75
+    &:hover
+        opacity: 0.75
 
 .active
     background: linear-gradient(45deg, hsla(37deg 42% 40% / 1) 0%, hsla(39deg 63% 62% /1) 100%)
