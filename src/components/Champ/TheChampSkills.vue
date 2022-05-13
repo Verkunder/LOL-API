@@ -1,10 +1,10 @@
 <template>
   <div class="champ__skills">
     <swiper class="swiper" :modules="modules" :scrollbar="{ hide: true }">
-<!--      <swiper-slide>
+      <swiper-slide>
         <div class="champ__skills-item">
-          <h1>{{ item.name }} - {{ skillKey[id] }}</h1>
-          {{ item.description }}
+          <h1>{{props.champ.passive.name}}</h1>
+          {{ props.champ.passive.description }}
           <div class="champ__skills-video">
             <video
                 class="champ__skills-video-item"
@@ -13,15 +13,13 @@
                 newId +
                 '/ability_' +
                 newId +
-                '_' +
-                skillKey[id] +
-                '1.webm'
+                '_P1.webm'
               "
                 controls
             ></video>
           </div>
         </div>
-      </swiper-slide>-->
+      </swiper-slide>
       <swiper-slide v-for="(item, id) in champs" class="slide" :key="id">
         <div class="champ__skills-item">
           <h1>{{ item.name }} - {{ skillKey[id] }}</h1>
