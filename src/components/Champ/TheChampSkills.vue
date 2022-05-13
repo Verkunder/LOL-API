@@ -1,24 +1,24 @@
 <template>
   <div class="champ__skills">
     <swiper class="swiper" :modules="modules" :scrollbar="{ hide: true }">
-      <swiper-slide v-for="item in champs" class="slide">
+      <swiper-slide v-for="(item, id) in champs" class="slide" :key="id">
         <div class="champ__skills-item">
           <h1>{{ item.name }}</h1>
-<!--          {{ props.champ }}
-          <video
+<!--          <video
             :src="
               'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/' +
-              '0' +
+              '00' +
               props.champ.key +
               '/ability_' +
-              '0' +
+              '00' +
               props.champ.key +
               '_P1.webm'
             "
             controls
-            autoplay
           ></video>-->
+          <div>
           {{ item.description }}
+          </div>
         </div>
       </swiper-slide>
     </swiper>

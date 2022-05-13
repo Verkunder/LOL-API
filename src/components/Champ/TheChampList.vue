@@ -42,7 +42,7 @@ const pagination = ref({});
 
 const store = useChampsStore()
 
-const paginator = (totalItem: any, currenPage: any) => {
+const paginator = (totalItem: number, currenPage: number) => {
   const startIndex = (currenPage - 1) * perPage.value;
   const endIndex = Math.min(startIndex + perPage.value - 1, totalItem - 1);
 
@@ -54,7 +54,7 @@ const paginator = (totalItem: any, currenPage: any) => {
   };
 };
 
-const setPage = (p: any) => {
+const setPage = (p: number) => {
   pagination.value = paginator(169, p);
   store.$state.onPage = p
 };
