@@ -13,7 +13,7 @@
           <div class="champ__tag-container" >
             <div></div>
             <div class="champ__tag-item" v-for="item in props.item.tags">
-              <img class="champ__tag-icon" :src="'src/assets/icons/' + item + '.svg'" :alt="item">
+              <img class="champ__tag-icon" :src="'icons/' + item + '.svg'" :alt="item">
             </div>
           </div>
         </div>

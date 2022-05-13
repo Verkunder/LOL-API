@@ -31,7 +31,7 @@
           <img
             class="champ__detail-image-item"
             :src="
-              'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' +
+              'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' +
               champ.id +
               '_0.jpg'
             "
@@ -72,7 +72,7 @@ const video = ref([])
 onMounted(async () => {
   await axios
     .get(
-      `http://ddragon.leagueoflegends.com/cdn/12.9.1/data/ru_RU/champion/${champId.value}.json`
+      `https://ddragon.leagueoflegends.com/cdn/12.9.1/data/ru_RU/champion/${champId.value}.json`
     )
     .then((response) => (champ.value = response.data.data[champId.value]));
   success.value = true;

@@ -4,7 +4,7 @@
       <swiper-slide class="slide" v-for="item in dontDevault">
         <h1>{{ item.name }}</h1>
         <div class="champ__slider-skins">
-          <img :src="'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + props.champ + '_' + item.num + '.jpg'" :alt="item.name">
+          <img :src="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + props.champ + '_' + item.num + '.jpg'" :alt="item.name">
         </div>
       </swiper-slide>
     </swiper>
